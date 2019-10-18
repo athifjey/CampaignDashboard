@@ -1,0 +1,11 @@
+.MuiGrid-root > div {
+    margin: 10px;
+}
+
+
+.MuiGrid-root
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

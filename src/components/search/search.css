@@ -1,0 +1,67 @@
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    
+    box-sizing: border-box;
+}
+
+
+.search-bg {
+    background-color: #f3ff8d;
+    border-radius: 10px;
+}
+
+.search-container{
+   
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form-container{
+    min-height: 120px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-text{
+    color: #f50057;
+    min-height: 40px;
+    max-width: 80%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.label-or{
+    font-size: 12px;
+    color: #000;
+    margin-right: 12px;
+}
+
+.input-container{
+    margin: auto 8px;
+}
+
+.button-container{
+    margin: auto 8px;
+}
+
+.MuiButton-outlinedSecondary{
+    background-color: #f50057 !important;
+    color: #fff !important;
+}
+
+.MuiButton-outlinedPrimary{
+    color: #f50057 !important;
+    border-color: #f50057!important;
+}
+
+.error-class{
+    font-size: 10px;
+    color: red;
+}
