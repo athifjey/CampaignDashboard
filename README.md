@@ -21,7 +21,7 @@ The search widget will provide date filters to search campaigns by date range an
 
 When both date and name is given as input, the app will search for Campaign name only. 
 
-After searching with name and search with date again, empty the input field.
+After searching with name, and to search with date again, empty the input field.
 
 There is a `SEARCH` button to initiate the search.
 
@@ -63,9 +63,9 @@ The campaign list can be added dynamically as follows:
             Budget: '100000'
         }])`
 
-        The table will be updated with the new data. 
+#### The table will be updated with the new data. 
 
-Cross browser compatibility:
+### Cross browser compatibility:
 
 The app is supported in the following browsers
 
@@ -78,11 +78,11 @@ The app is built for Desptop screens, laptop screens and Tablets. Not built for 
 
 Refer package.json for the list of libraries used.
 
-Built by
+### Built by
 
-Athif J
-Skype: athifjey
-github: athifjey
-mail: athifbijli@gmail.com
-Call & WhatsApp: +91 9944 089 079
+### Athif J
+### Skype: athifjey
+### github: athifjey
+### mail: athifbijli@gmail.com
+### Call & WhatsApp: +91 9944 089 079
 
