@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import MaterialTable from 'material-table';
 import Moment from 'react-moment';
 import CurrencyFormat from 'react-currency-format';
+
+// Local imports
 import './campaignTable.css';
 import '../../App.css';
-// import Icon from '@material-ui/core/Icon';
 
 class CampaignTable extends Component {
 
@@ -13,6 +14,7 @@ class CampaignTable extends Component {
     window.Campaign = this;
     this.state = {
       exData: 'exData',
+      firstReset: false,
       columns: [
         { title: 'Name', field: 'name' },
         {
@@ -117,17 +119,48 @@ class CampaignTable extends Component {
     this.tableData = [];
   }
 
+  componentDidMount() {
+    this.modifyCampData();
+  }
+
   componentDidUpdate(prevProps, prevState) {
+
     if (this.props.emittedSearchData !== prevProps.emittedSearchData) {
-      if (this.props.emittedSearchData.resetTable !== prevProps.emittedSearchData.resetTable ||
-      prevState.resetTable !== prevProps.emittedSearchData.resetTable ) {
-        this.resetTableFn();
+      if (this.props.emittedSearchData.resetTable !== prevProps.emittedSearchData.resetTable) {
+        this.resetTableFn(); // For first click of reset
+      } else if (this.state.resetTable !== prevProps.emittedSearchData.resetTable) {
+        this.resetTableFn(); // For subsequent reset click
       } else {
-        this.filterCampData();
+        this.filterCampData(); //To filter based on search
       }
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+
+    // To update table data
+    if (this.state.tableData !== nextState.tableData) {
+      return true;
+    }
+
+    // To check if emitted prop is updated
+    if (this.props.emittedSearchData !== nextProps.emittedSearchData) {
+      return true;
+    }
+
+    // To update the dynamic data import from browser console
+    if (this.state.data !== nextState.data) {
+      return true;
+    }
+
+    // To verify reset state
+    if (this.state.resetTable !== nextState.resetTable) {
+      return true;
+    }
+
+  }
+
+  // To add campaigns through browser console
   AddCampaigns(campD) {
     this.setState({ data: campD });
     this.modifyCampData();
@@ -159,6 +192,7 @@ class CampaignTable extends Component {
   // Method for filtering the table data
   filterCampData() {
     var filterData = this.state.data;
+    this.setState({ resetTable: false });
     var searchValue = this.props.emittedSearchData.searchValue;
     var newFilData = [];
 
@@ -179,7 +213,6 @@ class CampaignTable extends Component {
       })
     } else {
 
-
       searchValue = searchValue.toLowerCase();
 
       newFilData = filterData.filter((row) => {
@@ -193,37 +226,15 @@ class CampaignTable extends Component {
     }
   }
 
-  resetTableFn(){
-    console.log('Reset successful')
+  // Method to reset the table
+  resetTableFn() {
     var tempTabData = this.state.data;
-    this.setState({resetTable: false,
-    tableData: tempTabData});
-
+    this.setState({
+      resetTable: true,
+      tableData: tempTabData
+    });
   }
 
-  componentDidMount() {
-    this.modifyCampData();
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-
-    if (this.props.emittedSearchData !== nextProps.emittedSearchData) {
-      return true;
-    }
-
-    if (this.state.data !== nextState.data) {
-      return true;
-    }
-
-    if (this.state.tableData !== nextState.tableData) {
-      return true;
-    }
-
-    if (this.state.resetTable !== this.props.emittedSearchData.resetTable){
-      return true;
-    }
-
-  }
   render() {
     return (
       <div>

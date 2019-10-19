@@ -23,6 +23,7 @@ class CampaignTemplate extends Component {
     };
   }
 
+  // Emitter to fetch Search data from search.js
   emitSearchFormFn = (e) => {
     this.setState({
       searchValue: e.searchValue,
@@ -31,6 +32,7 @@ class CampaignTemplate extends Component {
     })
   }
 
+  // Emitter to fetch Reset data from search.js
   resetTableFn = (e) => {
     this.setState({ resetTable: e })
   }

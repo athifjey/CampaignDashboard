@@ -28,18 +28,21 @@ class Search extends Component {
     },
   }));
 
+  // Fetching the start date from date picker
   selectedStartDate(data) {
     this.setState({
       selStartDate: data
     })
   }
 
+  // Fetching the end date from date picker
   selectedEndDate(data) {
     this.setState({
       selEndDate: data
     })
   }
 
+  // Fetching the search input
   inputValue = (event) => {
     this.setState(
       {
@@ -49,7 +52,7 @@ class Search extends Component {
 
   }
 
-
+  // Function to call when SEARCH is clicked
   onSubmit = (event) => {
     event.preventDefault();
 
@@ -60,7 +63,8 @@ class Search extends Component {
       this.setState({
         dateError: '',
         selStartDate: startD,
-        selEndDate: endD
+        selEndDate: endD,
+        resetTable: false
       });
       this.props.emitSearchForm(this.state)
     } else {
@@ -68,13 +72,11 @@ class Search extends Component {
     }
   }
 
+  // Function to call when RESET is clicked
   onReset = (event) => {
     event.preventDefault();
     this.props.resetTable(true);
   }
-
-
-
 
   render() {
     let dateError;
@@ -89,7 +91,6 @@ class Search extends Component {
       <div className="flex-column search-bg search-container">
         <div className="flex-row search-bg search-form-container">
 
-
           <div className="flex-column">
             <StyledDatepicker
               selStartDate={this.selectedStartDate.bind(this)}
@@ -98,6 +99,7 @@ class Search extends Component {
               {dateError}
             </div>
           </div>
+
           <div className="label-or">
             --OR--
           </div>
@@ -114,22 +116,24 @@ class Search extends Component {
 
           <div className="button-container">
             <div className="flex-row">
+
               <Button
                 variant="outlined" color="secondary" className={this.useStyles.button}
                 onClick={this.onSubmit}>
                 SEARCH
               </Button>
-              <Button variant="outlined" color="primary" className={this.useStyles.button}
+              <Button 
+                variant="outlined" color="primary" className={this.useStyles.button}
                 onClick={this.onReset}>RESET</Button>
             </div>
 
           </div>
         </div>
 
-        <div className="info-text">You can either search with Date range or with Campaign name. Searching with all values will only search with campaign name.
+        <div className="info-text">
+          You can either search with Date range or with Campaign name. Searching with all values will only search with campaign name.
         </div>
       </div>
-
     );
   }
 }
