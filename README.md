@@ -8,12 +8,18 @@ In the project directory, you can run:
 
 to add the dependencies.
 
+You can run the Unit tests by entering the following command. All component level testing have been done for form elements.
+
+### yarn test
+
 To start the app, run
 
 ### yarn start
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+#### A production build is also available at build folder. 
 
 The app has two widgets. 
 
@@ -80,8 +86,5 @@ Refer package.json for the list of libraries used.
 
 ### Built by
 
-### Athif J
-### Skype: athifjey
-### Github: athifjey
-### Mail: athifbijli@gmail.com
-### Call & WhatsApp: +91 9944 089 079
+#### athifbijli@gmail.com
+#### Skype & Github: athifjey
