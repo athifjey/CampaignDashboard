@@ -28,7 +28,8 @@ class CampaignTemplate extends Component {
     this.setState({
       searchValue: e.searchValue,
       selEndDate: e.selEndDate,
-      selStartDate: e.selStartDate
+      selStartDate: e.selStartDate,
+      resetTable: false
     })
   }
 

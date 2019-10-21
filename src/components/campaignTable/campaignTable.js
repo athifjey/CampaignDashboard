@@ -126,10 +126,8 @@ class CampaignTable extends Component {
   componentDidUpdate(prevProps, prevState) {
 
     if (this.props.emittedSearchData !== prevProps.emittedSearchData) {
-      if (this.props.emittedSearchData.resetTable !== prevProps.emittedSearchData.resetTable) {
-        this.resetTableFn(); // For first click of reset
-      } else if (this.state.resetTable !== prevProps.emittedSearchData.resetTable) {
-        this.resetTableFn(); // For subsequent reset click
+      if (this.props.emittedSearchData.resetTable) {
+        this.resetTableFn(); // Function to call when Reset is clicked
       } else {
         this.filterCampData(); //To filter based on search
       }
@@ -156,6 +154,8 @@ class CampaignTable extends Component {
     // To verify reset state
     if (this.state.resetTable !== nextState.resetTable) {
       return true;
+    } else {
+      return false;
     }
 
   }
@@ -230,7 +230,7 @@ class CampaignTable extends Component {
   resetTableFn() {
     var tempTabData = this.state.data;
     this.setState({
-      resetTable: true,
+      resetTable: false,
       tableData: tempTabData
     });
   }
