@@ -106,9 +106,11 @@ class Search extends Component {
 
           <div className="input-container flex-column">
             <TextField
+              ref='search'
               id="standard-with-placeholder"
               label="Campaign name"
               placeholder=""
+              name="search"
               className="textfield-class"
               onChange={this.inputValue}
             />

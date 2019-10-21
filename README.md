@@ -1,10 +1,10 @@
 # CampaignDashboard
-A React.js app built for viewing different campaigns and filter them based on Date and campaign name. The campaigns can also be added dynamically. 
 
+A React.js app built for viewing different campaigns and filter them based on Date and campaign name. The campaigns can also be added dynamically. 
 
 In the project directory, you can run:
 
-### 'yarn install'
+### yarn install
 
 to add the dependencies.
 
@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The app has two widgets. 
 
-The search widget will provide date filters to search campaigns by date range and a input field to search campaigns by name.
+The search widget will provide date filters to search campaigns by date range and an input field to search campaigns by name.
 
 When both date and name is given as input, the app will search for Campaign name only. 
 
@@ -70,11 +70,11 @@ The campaign list can be added dynamically as follows:
 The app is supported in the following browsers
 
 1. Latest 3 versions of Chrome
-2. lastest 2 versions of Mozilla
+2. Latest 2 versions of Mozilla
 3. Latest version of EDGE
 4. No support for IE
 
-The app is built for Desptop screens, laptop screens and Tablets. Not built for mobile.
+The app is built for Desktop screens, laptop screens and Tablets. Not built for mobile.
 
 Refer package.json for the list of libraries used.
 
@@ -82,7 +82,6 @@ Refer package.json for the list of libraries used.
 
 ### Athif J
 ### Skype: athifjey
-### github: athifjey
-### mail: athifbijli@gmail.com
+### Github: athifjey
+### Mail: athifbijli@gmail.com
 ### Call & WhatsApp: +91 9944 089 079
-

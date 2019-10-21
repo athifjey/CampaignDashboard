@@ -6,10 +6,14 @@
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
     "create-react-component-folder": "^0.1.30",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "material-table": "^1.52.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "react": "^16.10.2",
+    "react-addons-test-utils": "^15.6.2",
     "react-currency-format": "^1.0.0",
     "react-dom": "^16.10.2",
     "react-moment": "^0.9.6",
@@ -34,6 +38,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }

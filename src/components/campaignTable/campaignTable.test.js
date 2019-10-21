@@ -1,10 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, configure  } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 import CampaignTable from './campaignTable';
 
-describe('<CampaignTable />', () => {
-  test('renders', () => {
-    const wrapper = shallow(<CampaignTable />);
-    expect(wrapper).toMatchSnapshot();
+configure({ adapter: new Adapter() });
+
+describe('CampaignTable', () => {
+  it('should render correctly in "debug" mode', () => {
+   shallow(<CampaignTable debug />);    
   });
 });

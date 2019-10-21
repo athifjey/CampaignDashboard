@@ -196,7 +196,9 @@ class CampaignTable extends Component {
     var searchValue = this.props.emittedSearchData.searchValue;
     var newFilData = [];
 
+    
     if (searchValue === '') {
+      // eslint-disable-next-line
       newFilData = filterData.filter((row) => {
         var tableStDate = new Date(row.startDate);
         var tableEndDate = new Date(row.endDate);
