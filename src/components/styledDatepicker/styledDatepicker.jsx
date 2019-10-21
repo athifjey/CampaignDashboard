@@ -18,7 +18,6 @@ const StyledDatepicker = ({selStartDate, selEndDate}) => {
   
   
   const handleStartDateChange = (date) => {
-    console.log(date)
     setSelectedStartDate(date);    
     selStartDate(date);
   };

@@ -5,6 +5,7 @@ import './search.css'
 import StyledDatepicker from '../styledDatepicker';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 class Search extends Component {
@@ -15,7 +16,8 @@ class Search extends Component {
       searchValue: '',
       selStartDate: Date(),
       selEndDate: Date(),
-      dateError: ''
+      dateError: '',
+      inputError: false
     };
   }
 
@@ -44,6 +46,18 @@ class Search extends Component {
 
   // Fetching the search input
   inputValue = (event) => {
+    var evTgtVal = event.target.value;
+    let regExpAlpNm = /[^A-Za-z0-9]+/g;
+    var res = regExpAlpNm.test(evTgtVal)
+
+    if (res) {
+      var newStr = evTgtVal.slice(0, -1);
+      event.target.value = newStr;
+      this.setState({ inputError: true })
+    } else {
+      this.setState({ inputError: false })
+    }
+
     this.setState(
       {
         searchValue: event.target.value
@@ -104,40 +118,44 @@ class Search extends Component {
             --OR--
           </div>
 
-          <div className="input-container flex-column">
-            <TextField
-              ref='search'
-              id="standard-with-placeholder"
-              label="Campaign name"
-              placeholder=""
-              name="search"
-              className="textfield-class"
-              onChange={this.inputValue}
-            />
-          </div>
-
-          <div className="button-container">
-            <div className="flex-row">
-
-              <Button
-                variant="outlined" color="secondary" className={this.useStyles.button}
-                onClick={this.onSubmit}>
-                SEARCH
-              </Button>
-              <Button 
-                variant="outlined" color="primary" className={this.useStyles.button}
-                onClick={this.onReset}>RESET</Button>
+          <Tooltip onClose={this.state.inputError} onOpen={this.state.inputError} open={this.state.inputError} 
+          title="Start date cannot be greater than End date">
+            <div className="input-container flex-column">
+              <TextField
+                ref='search'
+                id="standard-with-placeholder"
+                label="Campaign name"
+                placeholder=""
+                name="search"
+                className="textfield-class"
+                onChange={this.inputValue}
+              />
             </div>
+            </Tooltip>
 
-          </div>
+
+            <div className="button-container">
+              <div className="flex-row">
+
+                <Button
+                  variant="outlined" color="secondary" className={this.useStyles.button}
+                  onClick={this.onSubmit}>
+                  SEARCH
+              </Button>
+                <Button
+                  variant="outlined" color="primary" className={this.useStyles.button}
+                  onClick={this.onReset}>RESET</Button>
+              </div>
+
+            </div>
         </div>
 
-        <div className="info-text">
-          You can either search with Date range or with Campaign name. Searching with all values will only search with campaign name.
+          <div className="info-text">
+            You can either search with Date range or with Campaign name. Searching with all values will only search with campaign name.
         </div>
-      </div>
-    );
-  }
-}
-
-export default Search;
+        </div>
+        );
+      }
+    }
+    
+    export default Search;
